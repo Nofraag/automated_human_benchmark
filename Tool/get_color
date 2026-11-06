@@ -1,0 +1,17 @@
+import keyboard
+from PIL import ImageGrab
+from pynput.mouse import Controller
+
+
+def on_click():
+    print("Color: " + str(px[mouse.position]) + " Mouse position: " + str(mouse.position))
+
+pressed = False
+mouse = Controller()
+while True: 
+    px = ImageGrab.grab().load() 
+    if keyboard.is_pressed('ctrl') and not pressed:  
+        on_click()
+        pressed = True 
+    else:
+        pressed = False
